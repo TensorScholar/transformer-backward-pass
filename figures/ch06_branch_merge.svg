@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="600" viewBox="0 0 1000 600">
+  <defs>
+    <marker id="a" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto"><path d="M0,0 L0,6 L9,3 z" fill="#222"/></marker>
+    <style>.b{fill:#fff;stroke:#222;stroke-width:2}.t{font:17px Arial,sans-serif;fill:#111}.s{font:14px Arial,sans-serif;fill:#333}.e{stroke:#222;stroke-width:2;fill:none;marker-end:url(#a)}</style>
+  </defs>
+  <text x="500" y="35" text-anchor="middle" class="t" font-weight="bold">One forward fan-out, one reverse accumulation</text>
+  <rect class="b" rx="10" x="410" y="65" width="180" height="50"/><text class="t" x="500" y="96" text-anchor="middle">N1</text>
+  <rect class="b" rx="10" x="100" y="180" width="200" height="50"/><text class="t" x="200" y="211" text-anchor="middle">Qtilde = N1 W_Q</text>
+  <rect class="b" rx="10" x="400" y="180" width="200" height="50"/><text class="t" x="500" y="211" text-anchor="middle">Ktilde = N1 W_K</text>
+  <rect class="b" rx="10" x="700" y="180" width="200" height="50"/><text class="t" x="800" y="211" text-anchor="middle">V = N1 W_V</text>
+  <path class="e" d="M460 115 C380 145 270 150 205 180"/><path class="e" d="M500 115 L500 180"/><path class="e" d="M540 115 C620 145 730 150 795 180"/>
+  <text class="s" x="500" y="275" text-anchor="middle">Forward: the same activation is consumed by three projection paths.</text>
+
+  <rect class="b" rx="10" x="100" y="345" width="200" height="50"/><text class="t" x="200" y="376" text-anchor="middle">Q-branch adjoint</text>
+  <rect class="b" rx="10" x="400" y="345" width="200" height="50"/><text class="t" x="500" y="376" text-anchor="middle">K-branch adjoint</text>
+  <rect class="b" rx="10" x="700" y="345" width="200" height="50"/><text class="t" x="800" y="376" text-anchor="middle">V-branch adjoint</text>
+  <rect class="b" rx="10" x="315" y="465" width="370" height="55"/><text class="t" x="500" y="498" text-anchor="middle">barN1 = barN1_Q + barN1_K + barN1_V</text>
+  <path class="e" d="M200 395 C260 435 350 450 410 465"/><path class="e" d="M500 395 L500 465"/><path class="e" d="M800 395 C740 435 650 450 590 465"/>
+  <text class="s" x="500" y="565" text-anchor="middle">Reverse: every downstream contribution targeting N1 must be summed exactly once.</text>
+</svg>

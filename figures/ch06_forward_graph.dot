@@ -1,0 +1,28 @@
+// Canonical one-head, one-block forward dataflow.
+// Regenerate:  python code/ch06_graphs.py     (or: dot -Tsvg ch06_forward_graph.dot)
+digraph ch06_forward {
+  rankdir=TB; fontname="Arial"; size="7,10";
+  node [shape=box, style="rounded,filled", fillcolor="#eef3f8", fontname="Arial", fontsize=10];
+  edge [fontname="Arial", fontsize=9];
+  X  [label="Token embeddings, residual X"];
+  N1 [label="RMSNorm 1 (Pre-RMSNorm)"];
+  Q  [label="Q projection + RoPE"];
+  K  [label="K projection + RoPE"];
+  V  [label="V projection (unrotated)"];
+  A  [label="Scaled scores + causal mask + row softmax"];
+  O  [label="O = A V, concat heads, then W_O"];
+  R  [label="First residual add: R = X + Y"];
+  N2 [label="RMSNorm 2 (Pre-RMSNorm)"];
+  FFN[label="SwiGLU gated feed-forward"];
+  Xp [label="Second residual add: X' = R + F"];
+  Nf [label="Final RMSNorm"];
+  Z  [label="Vocabulary projection, logits Z"];
+  L  [label="Mean next-token cross-entropy"];
+  X -> N1; N1 -> Q; N1 -> K; N1 -> V;
+  Q -> A [label="Q K^T / sqrt(d_h) + M"]; K -> A;
+  A -> O; V -> O; O -> R;
+  X -> R [label="identity path"];
+  R -> N2; N2 -> FFN; FFN -> Xp;
+  R -> Xp [label="identity path"];
+  Xp -> Nf; Nf -> Z; Z -> L;
+}

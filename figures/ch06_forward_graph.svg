@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="620pt" height="900pt" viewBox="0 0 620 900">
+<title>Canonical decoder block, one head, one block: forward dataflow</title>
+<!-- source: code/ch06_graphs.py  |  graphviz source: figures/ch06_forward_graph.dot -->
+<defs><marker id="arrow" viewBox="0 0 10 10" refX="10" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#1a1a1a"/></marker><marker id="arrowm" viewBox="0 0 10 10" refX="10" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#1f6f3f"/></marker><marker id="arrowd" viewBox="0 0 10 10" refX="10" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#8a6d3b"/></marker></defs>
+<rect width="620" height="900" fill="white"/>
+<text x="310" y="24" text-anchor="middle" font-family="Arial" font-size="13" font-weight="bold" fill="#1a1a1a">Canonical decoder block, one head, one block: forward dataflow</text>
+<path d="M 145.0 84.0 L 145.0 118.0" fill="none" stroke="#1a1a1a" stroke-width="1.4" marker-end="url(#arrow)"/>
+<path d="M 145.0 162.0 L 145.0 196.0" fill="none" stroke="#1a1a1a" stroke-width="1.4" marker-end="url(#arrow)"/>
+<path d="M 145.0 162.0 L 145.0 274.0" fill="none" stroke="#1a1a1a" stroke-width="1.4" marker-end="url(#arrow)"/>
+<path d="M 145.0 162.0 L 145.0 352.0" fill="none" stroke="#1a1a1a" stroke-width="1.4" marker-end="url(#arrow)"/>
+<path d="M 250.0 218.0 L 330.0 218.0" fill="none" stroke="#1a1a1a" stroke-width="1.4" marker-end="url(#arrow)"/>
+<text x="290.0" y="214.0" text-anchor="middle" font-family="Arial" font-size="9" fill="#444444">Q K^T / sqrt(d_h) + M</text>
+<path d="M 226.8 274.0 L 353.2 240.0" fill="none" stroke="#1a1a1a" stroke-width="1.4" marker-end="url(#arrow)"/>
+<path d="M 435.0 240.0 L 435.0 274.0" fill="none" stroke="#1a1a1a" stroke-width="1.4" marker-end="url(#arrow)"/>
+<path d="M 226.8 352.0 L 353.2 318.0" fill="none" stroke="#1a1a1a" stroke-width="1.4" marker-end="url(#arrow)"/>
+<path d="M 435.0 318.0 L 435.0 352.0" fill="none" stroke="#1a1a1a" stroke-width="1.4" marker-end="url(#arrow)"/>
+<path d="M 165.4 84.0 L 414.6 352.0" fill="none" stroke="#1a1a1a" stroke-width="1.4" marker-end="url(#arrow)"/>
+<text x="290.0" y="214.0" text-anchor="middle" font-family="Arial" font-size="9" fill="#444444">identity path</text>
+<path d="M 435.0 396.0 L 435.0 430.0" fill="none" stroke="#1a1a1a" stroke-width="1.4" marker-end="url(#arrow)"/>
+<path d="M 435.0 474.0 L 435.0 508.0" fill="none" stroke="#1a1a1a" stroke-width="1.4" marker-end="url(#arrow)"/>
+<path d="M 435.0 552.0 L 435.0 586.0" fill="none" stroke="#1a1a1a" stroke-width="1.4" marker-end="url(#arrow)"/>
+<path d="M 435.0 396.0 L 435.0 586.0" fill="none" stroke="#1a1a1a" stroke-width="1.4" marker-end="url(#arrow)"/>
+<text x="435.0" y="487.0" text-anchor="middle" font-family="Arial" font-size="9" fill="#444444">identity path</text>
+<path d="M 435.0 630.0 L 435.0 664.0" fill="none" stroke="#1a1a1a" stroke-width="1.4" marker-end="url(#arrow)"/>
+<path d="M 435.0 708.0 L 435.0 742.0" fill="none" stroke="#1a1a1a" stroke-width="1.4" marker-end="url(#arrow)"/>
+<path d="M 435.0 786.0 L 435.0 820.0" fill="none" stroke="#1a1a1a" stroke-width="1.4" marker-end="url(#arrow)"/>
+<rect x="40" y="40" width="210" height="44" rx="5" fill="#eef3f8" stroke="#1a1a1a" stroke-width="1.2"/>
+<text x="145.0" y="59.0" text-anchor="middle" font-family="Arial" font-size="9.5" fill="#1a1a1a">Token embeddings,</text>
+<text x="145.0" y="71.0" text-anchor="middle" font-family="Arial" font-size="9.5" fill="#1a1a1a">residual X</text>
+<rect x="40" y="118" width="210" height="44" rx="5" fill="#eef3f8" stroke="#1a1a1a" stroke-width="1.2"/>
+<text x="145.0" y="143.0" text-anchor="middle" font-family="Arial" font-size="9.5" fill="#1a1a1a">RMSNorm 1 (Pre-RMSNorm)</text>
+<rect x="40" y="196" width="210" height="44" rx="5" fill="#eef3f8" stroke="#1a1a1a" stroke-width="1.2"/>
+<text x="145.0" y="221.0" text-anchor="middle" font-family="Arial" font-size="9.5" fill="#1a1a1a">Q projection + RoPE</text>
+<rect x="40" y="274" width="210" height="44" rx="5" fill="#eef3f8" stroke="#1a1a1a" stroke-width="1.2"/>
+<text x="145.0" y="299.0" text-anchor="middle" font-family="Arial" font-size="9.5" fill="#1a1a1a">K projection + RoPE</text>
+<rect x="40" y="352" width="210" height="44" rx="5" fill="#eef3f8" stroke="#1a1a1a" stroke-width="1.2"/>
+<text x="145.0" y="377.0" text-anchor="middle" font-family="Arial" font-size="9.5" fill="#1a1a1a">V projection (unrotated)</text>
+<rect x="330" y="196" width="210" height="44" rx="5" fill="#eef3f8" stroke="#1a1a1a" stroke-width="1.2"/>
+<text x="435.0" y="215.0" text-anchor="middle" font-family="Arial" font-size="9.5" fill="#1a1a1a">Scaled scores + causal</text>
+<text x="435.0" y="227.0" text-anchor="middle" font-family="Arial" font-size="9.5" fill="#1a1a1a">mask + row softmax</text>
+<rect x="330" y="274" width="210" height="44" rx="5" fill="#eef3f8" stroke="#1a1a1a" stroke-width="1.2"/>
+<text x="435.0" y="293.0" text-anchor="middle" font-family="Arial" font-size="9.5" fill="#1a1a1a">O = A V, concat heads,</text>
+<text x="435.0" y="305.0" text-anchor="middle" font-family="Arial" font-size="9.5" fill="#1a1a1a">then W_O</text>
+<rect x="330" y="352" width="210" height="44" rx="5" fill="#eef3f8" stroke="#1a1a1a" stroke-width="1.2"/>
+<text x="435.0" y="371.0" text-anchor="middle" font-family="Arial" font-size="9.5" fill="#1a1a1a">First residual add: R =</text>
+<text x="435.0" y="383.0" text-anchor="middle" font-family="Arial" font-size="9.5" fill="#1a1a1a">X + Y</text>
+<rect x="330" y="430" width="210" height="44" rx="5" fill="#eef3f8" stroke="#1a1a1a" stroke-width="1.2"/>
+<text x="435.0" y="455.0" text-anchor="middle" font-family="Arial" font-size="9.5" fill="#1a1a1a">RMSNorm 2 (Pre-RMSNorm)</text>
+<rect x="330" y="508" width="210" height="44" rx="5" fill="#eef3f8" stroke="#1a1a1a" stroke-width="1.2"/>
+<text x="435.0" y="527.0" text-anchor="middle" font-family="Arial" font-size="9.5" fill="#1a1a1a">SwiGLU gated</text>
+<text x="435.0" y="539.0" text-anchor="middle" font-family="Arial" font-size="9.5" fill="#1a1a1a">feed-forward</text>
+<rect x="330" y="586" width="210" height="44" rx="5" fill="#eef3f8" stroke="#1a1a1a" stroke-width="1.2"/>
+<text x="435.0" y="605.0" text-anchor="middle" font-family="Arial" font-size="9.5" fill="#1a1a1a">Second residual add: X'</text>
+<text x="435.0" y="617.0" text-anchor="middle" font-family="Arial" font-size="9.5" fill="#1a1a1a">= R + F</text>
+<rect x="330" y="664" width="210" height="44" rx="5" fill="#eef3f8" stroke="#1a1a1a" stroke-width="1.2"/>
+<text x="435.0" y="689.0" text-anchor="middle" font-family="Arial" font-size="9.5" fill="#1a1a1a">Final RMSNorm</text>
+<rect x="330" y="742" width="210" height="44" rx="5" fill="#eef3f8" stroke="#1a1a1a" stroke-width="1.2"/>
+<text x="435.0" y="761.0" text-anchor="middle" font-family="Arial" font-size="9.5" fill="#1a1a1a">Vocabulary projection,</text>
+<text x="435.0" y="773.0" text-anchor="middle" font-family="Arial" font-size="9.5" fill="#1a1a1a">logits Z</text>
+<rect x="330" y="820" width="210" height="44" rx="5" fill="#eef3f8" stroke="#1a1a1a" stroke-width="1.2"/>
+<text x="435.0" y="839.0" text-anchor="middle" font-family="Arial" font-size="9.5" fill="#1a1a1a">Mean next-token</text>
+<text x="435.0" y="851.0" text-anchor="middle" font-family="Arial" font-size="9.5" fill="#1a1a1a">cross-entropy</text>
+<text x="310" y="888" text-anchor="middle" font-family="Arial" font-size="9" fill="#444444">solid arrow = tensor adjoint flows backward &#183; dashed = parameter adjoint &#183; green = accumulation merge</text>
+</svg>

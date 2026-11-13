@@ -1,0 +1,4 @@
+# Companion verification suite pinned dependencies
+torch==2.10.0
+pandas==2.2.3
+matplotlib==3.10.8

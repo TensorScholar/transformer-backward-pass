@@ -1,0 +1,57 @@
+// Authentic reverse pass for the canonical one-head, one-block specialization.
+// Dashed edges are parameter adjoints. Green merges are accumulation points.
+// Regenerate:  python code/ch06_graphs.py     (or: dot -Tsvg ch06_backward_graph.dot)
+digraph ch06_backward {
+  rankdir=BT; fontname="Arial";
+  node [shape=box, style="rounded,filled", fillcolor="#eef3f8", fontname="Arial", fontsize=10];
+  edge [fontname="Arial", fontsize=9];
+  L   [label="loss L"];
+  bZ  [label="bar Z = (P - Y)/T"];
+  bNf [label="bar N_f"];
+  bXp [label="bar X'  (merge)", fillcolor="#eaf3ea"];
+  bF  [label="bar F"];
+  bH  [label="bar H"];
+  bGU [label="bar G, bar U"];
+  bP  [label="bar G^pre (SiLU')"];
+  bN2 [label="bar N_2 (merge)", fillcolor="#eaf3ea"];
+  bR  [label="bar R (merge)", fillcolor="#eaf3ea"];
+  bY  [label="bar Y"];
+  bO  [label="bar O"];
+  bAV [label="bar A, bar V"];
+  bs  [label="bar s (masked softmax VJP)"];
+  bQK [label="bar Q, bar K, then inverse RoPE"];
+  bN1 [label="bar N_1 = merge of Q,K,V", fillcolor="#eaf3ea"];
+  bX  [label="bar X (merge)", fillcolor="#eaf3ea"];
+  bE  [label="bar E (scatter-add)"];
+  pWout[label="bar W_out", fillcolor="#f6f0e8", style="rounded,filled,dashed,filled"];
+  pgf [label="bar g_f", fillcolor="#f6f0e8"];
+  pWd [label="bar W_d", fillcolor="#f6f0e8"];
+  pWgu[label="bar W_g, bar W_u", fillcolor="#f6f0e8"];
+  pg2 [label="bar g_2", fillcolor="#f6f0e8"];
+  pWO [label="bar W_O", fillcolor="#f6f0e8"];
+  pWqkv[label="bar W_Q, bar W_K, bar W_V", fillcolor="#f6f0e8"];
+  pg1 [label="bar g_1", fillcolor="#f6f0e8"];
+  pE  [label="bar E (embedding)", fillcolor="#f6f0e8"];
+
+  L -> bZ;
+  bZ -> pWout [style=dashed, label="W_out"];
+  bZ -> bNf;
+  bNf -> pgf [style=dashed];
+  bNf -> bXp;
+  bXp -> bF [label="transformed"];
+  bXp -> pWd [style=dashed];
+  bF -> bH -> bGU -> bP -> bN2;
+  bGU -> pWgu [style=dashed];
+  bN2 -> pg2 [style=dashed];
+  bN2 -> bR [color="#1f6f3f", label="transformed"];
+  bXp -> bR [color="#1f6f3f", label="identity"];
+  bR -> bY; bY -> pWO [style=dashed]; bY -> bO;
+  bO -> bAV -> bs -> bQK;
+  bQK -> pWqkv [style=dashed];
+  bQK -> bN1 [color="#1f6f3f"];
+  bAV -> bN1 [color="#1f6f3f"];
+  bN1 -> pg1 [style=dashed];
+  bN1 -> bX [color="#1f6f3f"];
+  bY  -> bX [color="#1f6f3f", label="identity"];
+  bX -> bE -> pE [style=dashed];
+}

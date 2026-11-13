@@ -1,0 +1,14 @@
+# Byte-exact integrity is a hard requirement of this project.
+#
+# Git's default line-ending normalisation would rewrite the CRLF experiment CSVs
+# to LF on commit, altering file bytes. So: no text conversion, anywhere, for
+# any file.
+* -text
+
+# Explicit for clarity
+*.csv  -text
+*.svg  -text
+*.dot  -text
+*.py   -text
+*.md   -text
+*.txt  -text
